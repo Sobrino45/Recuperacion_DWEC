@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4.16</title>
+  </head>
+  <body>
+    <h1>Modificación del tamaño del texto</h1>
+    <div>
+      <p id="miPCambiar">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis
+        erat id ipsum venenatis laoreet. Curabitur lobortis sem nec malesuada
+        euismod. Donec consequat sagittis enim eu auctor. Nullam nibh nisi,
+        eleifend sed faucibus in, fringilla vitae mi. Sed eget placerat est.
+        Donec convallis ac ligula ac interdum. Donec ultricies vestibulum magna.
+        Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec erat
+        purus, porttitor in ultricies ut, gravida vel ligula. Aliquam erat
+        volutpat. Mauris sit amet ultrices nisi. Interdum et malesuada fames ac
+        ante ipsum primis in faucibus. Duis a quam eleifend, pharetra nunc non,
+        varius est.
+        <br /><br />
+        In erat enim, commodo vitae turpis in, gravida blandit erat. Nulla eget
+        dui quis ipsum congue volutpat. Suspendisse non arcu eu quam rhoncus
+        vestibulum. Mauris efficitur nisi faucibus mi hendrerit, eu interdum sem
+        placerat. Sed dignissim quam ac maximus mattis. Suspendisse id mi id
+        ipsum convallis accumsan at nec justo. Mauris gravida, erat quis luctus
+        vehicula, felis felis bibendum enim, sed semper nunc mauris et velit.
+        <br /><br />
+        Nunc vitae semper leo, sit amet aliquam est. Integer in consectetur
+        lectus. Morbi non sagittis diam, et aliquam sapien. Nunc urna erat,
+        volutpat ultrices consectetur dignissim, fermentum vel leo. Nulla
+        tristique nisl quis eros feugiat, non volutpat metus tempor. Maecenas
+        commodo nunc sed ante sagittis dictum. Aenean suscipit mauris fringilla
+        ligula iaculis eleifend. Nunc bibendum velit eu tortor congue, non
+        euismod lorem tristique. Vestibulum tincidunt dignissim ex quis tempor.
+        In blandit efficitur ultrices. In eu justo eu massa volutpat molestie.
+        Sed nec porta dui, imperdiet rhoncus ante. Sed convallis quam massa,
+        vitae lacinia arcu mollis a. Cras nibh eros, fringilla a lacus in,
+        rutrum rhoncus nisi. Maecenas at facilisis dui. Mauris quis mauris
+        porta, dapibus lectus nec, accumsan ligula.
+        <br />
+      </p>
+      <br />
+      <form action="">
+        <select name="seleccionTamanio" id="seleccionTamanio">
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+        <input type="button" onclick="cambiarTamanio();" value="Cambiar" />
+      </form>
+    </div>
+
+    <script>
+      function cambiarTamanio() {
+        let tamanioSeleccionado = document.getElementById("seleccionTamanio").value;
+        if(tamanioSeleccionado =="small"){
+             tamanio = "12px"
+        }else if(tamanioSeleccionado == "medium"){
+            tamanio = "20px";
+        }
+        else if(tamanioSeleccionado == "large"){
+            tamanio = "32px";
+        }
+        let pCambiarTamanio = document.getElementById("miPCambiar");
+        pCambiarTamanio.style.fontSize = tamanio;
+      }
+    </script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4.16</title>
+  </head>
+  <body>
+    <h1>Modificación del tamaño del texto</h1>
+    <div>
+      <p id="miPCambiar">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis
+        erat id ipsum venenatis laoreet. Curabitur lobortis sem nec malesuada
+        euismod. Donec consequat sagittis enim eu auctor. Nullam nibh nisi,
+        eleifend sed faucibus in, fringilla vitae mi. Sed eget placerat est.
+        Donec convallis ac ligula ac interdum. Donec ultricies vestibulum magna.
+        Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec erat
+        purus, porttitor in ultricies ut, gravida vel ligula. Aliquam erat
+        volutpat. Mauris sit amet ultrices nisi. Interdum et malesuada fames ac
+        ante ipsum primis in faucibus. Duis a quam eleifend, pharetra nunc non,
+        varius est.
+        <br /><br />
+        In erat enim, commodo vitae turpis in, gravida blandit erat. Nulla eget
+        dui quis ipsum congue volutpat. Suspendisse non arcu eu quam rhoncus
+        vestibulum. Mauris efficitur nisi faucibus mi hendrerit, eu interdum sem
+        placerat. Sed dignissim quam ac maximus mattis. Suspendisse id mi id
+        ipsum convallis accumsan at nec justo. Mauris gravida, erat quis luctus
+        vehicula, felis felis bibendum enim, sed semper nunc mauris et velit.
+        <br /><br />
+        Nunc vitae semper leo, sit amet aliquam est. Integer in consectetur
+        lectus. Morbi non sagittis diam, et aliquam sapien. Nunc urna erat,
+        volutpat ultrices consectetur dignissim, fermentum vel leo. Nulla
+        tristique nisl quis eros feugiat, non volutpat metus tempor. Maecenas
+        commodo nunc sed ante sagittis dictum. Aenean suscipit mauris fringilla
+        ligula iaculis eleifend. Nunc bibendum velit eu tortor congue, non
+        euismod lorem tristique. Vestibulum tincidunt dignissim ex quis tempor.
+        In blandit efficitur ultrices. In eu justo eu massa volutpat molestie.
+        Sed nec porta dui, imperdiet rhoncus ante. Sed convallis quam massa,
+        vitae lacinia arcu mollis a. Cras nibh eros, fringilla a lacus in,
+        rutrum rhoncus nisi. Maecenas at facilisis dui. Mauris quis mauris
+        porta, dapibus lectus nec, accumsan ligula.
+        <br />
+      </p>
+      <br />
+      <form action="">
+        <select name="seleccionTamanio" id="seleccionTamanio">
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+        <input type="button" onclick="cambiarTamanio();" value="Cambiar" />
+      </form>
+    </div>
+
+    <script>
+      function cambiarTamanio() {
+        let tamanioSeleccionado = document.getElementById("seleccionTamanio").value;
+        if(tamanioSeleccionado =="small"){
+             tamanio = "12px"
+        }else if(tamanioSeleccionado == "medium"){
+            tamanio = "20px";
+        }
+        else if(tamanioSeleccionado == "large"){
+            tamanio = "32px";
+        }
+        let pCambiarTamanio = document.getElementById("miPCambiar");
+        pCambiarTamanio.style.fontSize = tamanio;
+      }
+    </script>
+  </body>
+</html>

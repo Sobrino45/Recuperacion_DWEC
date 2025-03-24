@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4.23</title>
+  </head>
+  <body>
+    <h1>Lista dinámica</h1>
+
+    <form action="">
+      Texto<input type="text" id="mitexto" />
+      <input type="button" onclick="insertarTexto();" value="Insertar texto nuevo" />
+    </form>
+    <table id="tabla" style="border:1px dashed greed;"></table>
+    <script>
+      function insertarTexto() {
+        var texto = document.getElementById("mitexto").value;
+        var codigoFila = "<td>" + texto + "</td>";
+        codigoFila += "<td><input type='button' onclick='copiarEncima(this);' value='Copiar encima'></td>";
+        codigoFila += "<td><input type='button' onclick='borrar(this);' value='Borrar'></td>";
+        codigoFila += "<td><input type='button' onclick='actualizar(this);' value='Actualizar'></td>";
+
+        var fila = document.createElement("tr");
+        fila.innerHTML = codigoFila;
+        document.getElementById("tabla").appendChild(fila);
+      }
+      function borrar(boton) {
+        var borrarFila = boton.parentElement.parentElement;
+        document.getElementById("tabla").removeChild(borrarFila);
+      }
+      function copiarEncima(boton) {
+        var filaActual = boton.parentElement.parentElement;
+        var filaACopiar = boton.parentElement.parentElement.cloneNode(true);
+        document.getElementById("tabla").insertBefore(filaACopiar, filaActual);
+      }
+      function actualizar(boton) {
+          var texto = document.getElementById("mitexto").value;
+          var filaActual = boton.parentElement.parentElement;
+          var codigoFila = "<td>" + texto + "</td>";
+          codigoFila += "<td><input type='button' onclick='copiarEncima(this);' value='Copiar encima'></td>";
+          codigoFila += "<td><input type='button' onclick='borrar(this);' value='Borrar'></td>";
+          codigoFila += "<td><input type='button' onclick='actualizar(this);' value='Actualizar'></td>";
+          const nuevoTexto = document.createElement("tr");
+          nuevoTexto.innerHTML = codigoFila;
+          filaActual.parentElement.replaceChild(nuevoTexto, filaActual);
+      }
+
+    </script>
+  </body>
+</html>

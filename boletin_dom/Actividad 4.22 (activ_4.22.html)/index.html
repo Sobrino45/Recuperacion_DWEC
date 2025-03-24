@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4.22</title>
+  </head>
+  <body>
+    <h1>Lista dinámica</h1>
+    <div id="divEjercicio6">
+      <ul id="ulEjercicio6">
+
+      </ul>
+    </div>
+
+    <form action="">
+        Nuevo texto<input type="text" id="datoLista"><br>
+        <input type="button" onclick="insertarUsandoInnerHTML();" value="Añadir elto con insertAdjacentHTML" />
+        <br>
+        <input type="button" onclick="insertarUsandoCreateElement();" value="Añadir elto con createElement" />
+    </form>
+    <script>
+      function insertarUsandoInnerHTML(){
+        let miLista = document.getElementById('datoLista').value;
+            let miUl = document.querySelector("#ulEjercicio6");
+            miUl.insertAdjacentHTML("beforeend",`<li>${miLista}</li>`);
+        }
+
+        function insertarUsandoCreateElement(){
+            let miLista = document.getElementById('datoLista').value;
+            let miUl = document.querySelector("#ulEjercicio6");
+            let lista=document.createElement('li');
+            let texto=document.createTextNode(miLista);
+            lista.appendChild(texto);
+            miUl.appendChild(lista);
+        }
+    </script>
+  </body>
+</html>

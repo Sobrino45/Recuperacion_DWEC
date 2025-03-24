@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4.25</title>
+  </head>
+  <body>
+    <select id="provincias">
+
+    </select>
+
+    <form action="">
+        <input type="button" onclick="mostrarOption()" value="Probar">
+    </form>
+
+    <script>
+      let miArray = [
+        "Huelva",
+        "Sevilla",
+        "Córdoba",
+        "Jaén",
+        "Almería",
+        "Granada",
+        "Málaga",
+        "Cádiz",
+      ];
+      
+      function cargarSelect(){
+        let seleccionarSelect = document.getElementById('provincias');
+        for(let i = 0; i < miArray.length;i++){ 
+            let crearOption = document.createElement('option');
+            crearOption.value = miArray[i];
+            crearOption.textContent = miArray[i];
+            seleccionarSelect.appendChild(crearOption);
+        }
+      }
+
+      function mostrarOption(){
+        let seleccionarSelect = document.getElementById('provincias');
+        let provindiaSeleccionada = seleccionarSelect.value;
+
+        alert("Has seleccionado: "+ provindiaSeleccionada);
+      }
+
+      cargarSelect();
+
+      
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4.10</title>
+  </head>
+  <body>
+    <div id="miDiv1">
+        
+    </div>
+    <input type="button" onclick="insertarParrafo();" value="Añadir Párrafo" />
+    <script>
+      let contador = 1;
+      function insertarParrafo() {
+        let miDiv = document.querySelector("#miDiv1");
+        let parrafo = document.createElement("p");
+        let texto = document.createTextNode(`Párrafo número ${contador}`);
+        parrafo.appendChild(texto);
+        miDiv.appendChild(parrafo);
+
+        contador++;
+      }
+    </script>
+  </body>
+</html>

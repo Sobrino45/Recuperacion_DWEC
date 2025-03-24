@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4.29</title>
+    <style>
+      #dado {
+        width: 250px;
+        height: 250px;
+        background-color: black;
+        color: white;
+        font-size: 50px;
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        border-radius:  70px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dado"><p>3</p></div>
+    <button onclick="lanzarDado()">Lanzar Dado</button>
+    <script>
+      function lanzarDado() {
+        var dado = document.getElementById("dado");
+        var intervalo = setInterval(function () {dado.textContent = Math.floor(Math.random() * 6) + 1;}, 500);
+        setTimeout(function () { clearInterval(intervalo);}, 5000);}
+    </script>
+  </body>
+</html>
