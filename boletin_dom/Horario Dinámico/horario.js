@@ -152,9 +152,9 @@ function crearHorario() {
         dias.forEach(dia => {
             let td = document.createElement("td");
 
-            let asignacion = tramo.asignaturas.find(a => a.idDia === dia.id);
-            if (asignacion) {
-                let asignatura = getAsignatura(asignacion.idAsignatura); 
+            let momento = tramo.asignaturas.find(a => a.idDia === dia.id);
+            if (momento) {
+                let asignatura = getAsignatura(momento.idAsignatura); 
                 td.textContent = `${asignatura.nombre}\n${asignatura.grupo}`;
                 td.style.backgroundColor = asignatura.color;
 
