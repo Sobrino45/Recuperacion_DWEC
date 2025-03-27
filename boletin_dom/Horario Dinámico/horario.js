@@ -117,3 +117,60 @@ function getTramo(idTramo) {
    return null;
 }
 
+document.getElementById("inputCrearHorario").addEventListener("click", crearHorario);
+
+function crearHorario() {
+    let tabla = document.getElementById("horario");
+    tabla.innerHTML = "";
+
+    let thead = document.createElement("thead");
+    let headerRow = document.createElement("tr");
+
+    let thHora = document.createElement("th");
+    thHora.textContent = "Hora";
+    headerRow.appendChild(thHora);
+
+    dias.forEach(dia => {
+        let th = document.createElement("th");
+        th.textContent = getDia(dia.id).nombre; 
+        headerRow.appendChild(th);
+    });
+
+    thead.appendChild(headerRow);
+    tabla.appendChild(thead);
+
+    let tbody = document.createElement("tbody");
+
+    horario.forEach(tramo => {
+        let fila = document.createElement("tr");
+
+        let tdHora = document.createElement("td");
+        let tramoInfo = getTramo(tramo.idTramo); 
+        tdHora.textContent = `${tramoInfo.hora} (${tramoInfo.descripcion})`;
+        fila.appendChild(tdHora);
+
+        dias.forEach(dia => {
+            let td = document.createElement("td");
+
+            let asignacion = tramo.asignaturas.find(a => a.idDia === dia.id);
+            if (asignacion) {
+                let asignatura = getAsignatura(asignacion.idAsignatura); 
+                td.textContent = `${asignatura.nombre}\n${asignatura.grupo}`;
+                td.style.backgroundColor = asignatura.color;
+
+                td.addEventListener("mouseenter", () => {
+                    document.getElementById("aula").textContent = asignatura.aula;
+                });
+
+                td.addEventListener("mouseleave", () => {
+                    document.getElementById("aula").textContent = "";
+                });
+            }
+            fila.appendChild(td);
+        });
+
+        tbody.appendChild(fila);
+    });
+
+    tabla.appendChild(tbody);
+}
