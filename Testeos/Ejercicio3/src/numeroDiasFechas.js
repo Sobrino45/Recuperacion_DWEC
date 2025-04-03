@@ -25,10 +25,3 @@ function numeroDiasFechas(fechaDesde, fechaHasta) {
     const diferenciaMs = dateHasta - dateDesde;
     return Math.round(diferenciaMs / (1000 * 60 * 60 * 24));
 }
-
-// Compatibilidad con Node.js y navegador
-if (typeof module !== "undefined" && module.exports) {
-    module.exports = { numeroDiasFechas, validarFecha };
-} else {
-    window.numeroDiasFechas = numeroDiasFechas;
-}

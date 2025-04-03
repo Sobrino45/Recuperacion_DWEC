@@ -11,10 +11,3 @@ function filtrarPrimosMayoresOnce(array) {
         .filter(num => num > 11 && esPrimo(num)) // Filtrar primos > 11
         .sort((a, b) => a - b); // Ordenar de menor a mayor
 }
-
-// Compatibilidad con Node.js y navegador
-if (typeof module !== "undefined" && module.exports) {
-    module.exports = { filtrarPrimosMayoresOnce, esPrimo };
-} else {
-    window.filtrarPrimosMayoresOnce = filtrarPrimosMayoresOnce;
-}

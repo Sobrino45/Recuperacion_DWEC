@@ -6,7 +6,7 @@ class Reserva {
         this.fechaSalida = this.validarFecha(fechaSalida);
 
         const numeroDias = this.numeroDiasEstancia;
-        if (numeroDias < 1) {
+        if (numeroDias <= 1) {
             throw new Error("Estancia mínima debe ser de un día");
         }
     }
@@ -57,11 +57,15 @@ class Reserva {
         const dateDesde = new Date(anioDesde, mesDesde - 1, diaDesde);
         const dateHasta = new Date(anioHasta, mesHasta - 1, diaHasta);
 
-        if (dateHasta <= dateDesde) {
+        if (dateHasta < dateDesde) {
             throw new Error("Fecha de salida debe ser posterior a la de entrada");
         }
 
         if (Math.round((dateHasta - dateDesde) / (1000 * 60 * 60 * 24)) < 1) {
+            throw new Error("Estancia mínima debe ser de un día");
+        }
+
+        if (dateHasta == dateDesde) {
             throw new Error("Estancia mínima debe ser de un día");
         }
 
