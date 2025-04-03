@@ -21,7 +21,7 @@ const PRODUCTOS = [
 function filtrarProductos(idCategoria) {
 	let productos=[];
 	for (let i = 0; i < PRODUCTOS.length; i++) {
-		if (idCategoria== PRODUCTOS[i].categoria) {
+		if (idCategoria == PRODUCTOS[i].categoria) {
 			productos.push(PRODUCTOS[i]);
 		}
 	}
@@ -31,7 +31,7 @@ function filtrarProductos(idCategoria) {
 function filtrarProductosConId(id) {
 	let productos=[];
 	for (let i = 0; i < PRODUCTOS.length; i++) {
-		if (id== PRODUCTOS[i].id) {
+		if (id == PRODUCTOS[i].id) {
 			productos.push(PRODUCTOS[i]);
 		}
 	}
