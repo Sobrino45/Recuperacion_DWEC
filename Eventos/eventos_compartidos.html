@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="boton1" value="Boton1">
+    <input type="button" id="boton2" value="Boton2">
+    <input type="text" id="texto1" name="">
+    <script>
+        function iniciar() {
+            document.querySelector('#boton1').addEventListener('click', miManejador);
+            document.querySelector('#boton2').addEventListener('click', miManejador);
+            document.querySelector('#texto1').addEventListener('keydown', miManejador);
+        }
+        // Manejador de eventos compartidos
+        function miManejador(evt) {
+            console.log(evt);
+            let control = evt.target;
+            let tipoEvento = evt.type;
+
+            if (control.id == 'boton1') alert("Has pulsado el boton 1");
+            if (control.id == 'boton2') alert("Has pulsado el boton 2");
+
+            if (tipoEvento == 'keydown') {
+                let codigoTecla = evt.keyCode;
+                alert("Has pulsado la tecla " + codigoTecla);
+            }
+            // alert("Hola");
+        }
+        
+
+        addEventListener('load', iniciar);
+    </script>
+</body>
+</html>

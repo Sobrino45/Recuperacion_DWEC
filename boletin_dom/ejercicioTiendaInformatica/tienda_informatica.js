@@ -18,8 +18,17 @@ const PRODUCTOS = [
 
 // Escribe aquí tu código
 
+function iniciar() {
+	cambiarNombreCategorias();
+	mostrarProductos(0);
+}
+
 function filtrarProductos(idCategoria) {
 	let productos=[];
+
+	if (idCategoria == 0) {
+		return PRODUCTOS;
+	}
 	for (let i = 0; i < PRODUCTOS.length; i++) {
 		if (idCategoria == PRODUCTOS[i].categoria) {
 			productos.push(PRODUCTOS[i]);
@@ -38,24 +47,23 @@ function filtrarProductosConId(id) {
 	return productos;
 }
 
-addEventListener("load",  cambiarNombreCategorias())
+addEventListener("load", iniciar)
 
 function cambiarNombreCategorias() {
 	let categorias = document.getElementById("categorias");
-	categorias.innerHTML = ""; // Limpiar el contenido previo
+	categorias.innerHTML = ""; 
 	for (let i = 0; i < CATEGORIAS.length; i++) {
 		let div = document.createElement("div");
 		div.className="col";
 		div.innerHTML=`<h1 onclick="mostrarProductos(${CATEGORIAS[i].id})"><span class="badge bg-info cursor-pointer">${CATEGORIAS[i].nombre}</span></h1>`;
 		categorias.appendChild(div);
 	}
-
 }
 
 function mostrarProductos(idCategoria) {
 	let productos = filtrarProductos(idCategoria);
 	let productosDiv = document.getElementById("productos");
-	productosDiv.innerHTML = ""; // Limpiar el contenido previo
+	productosDiv.innerHTML = ""; 
 	for (let i = 0; i < productos.length; i++) {
 		let div = document.createElement("div");
 		div.className="col";
@@ -65,7 +73,7 @@ function mostrarProductos(idCategoria) {
 				<h5 class="card-title">${productos[i].nombre}</h5>
 				<p class="card-text">${productos[i].descripcion}</p>
 				<p class="card-text">${productos[i].precio}€</p>
-				<a href="#" class="btn btn-primary" onclick="mostrarCaracteristicas(${productos[i].id})">Caracteristicas</a>
+				<a href="#" class="btn btn-primary" onclick="mostrarCaracteristicas(${productos[i].id})">Características</a>
 			</div>
 		</div>`;
 		productosDiv.appendChild(div);
@@ -75,11 +83,11 @@ function mostrarProductos(idCategoria) {
 function mostrarCaracteristicas(id) {
 	let productos = filtrarProductosConId(id);
 	let caracteristicasDiv = document.getElementById("caracteristicas");
-	caracteristicasDiv.innerHTML = ""; // Limpiar el contenido previo
-	for (let i = 0; i <productos[0].caracteristicas.length; i++) {
+	caracteristicasDiv.innerHTML = ""; 
+	for (let i = 0; i < productos[0].caracteristicas.length; i++) {
 		let li=document.createElement("li");
 		li.className="list-group-item d-flex justify-content-between lh-sm";
 		li.innerHTML=`<h6 class="my-0">${productos[0].caracteristicas[i]}</h6>`;
-		caracteristicasDiv.appendChild(li);
+		caracteristicasDiv.appendChild(li); 
 	}
-};
+}
