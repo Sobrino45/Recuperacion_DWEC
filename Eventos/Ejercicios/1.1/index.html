@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Actividad 5a1</title>
+</head>
+<body>
+  <button id="boton1">Botón 1</button>
+  <button id="boton2">Botón 2</button>
+
+  <div id="div1" style="margin-top: 20px; width: 100px; height: 100px; background: lightblue;">Div 1</div>
+  <div id="div2" style="margin-top: 20px; width: 100px; height: 100px; background: lightgreen;">Div 2</div>
+
+  <script>
+    function manejadorEventos(e) {
+      console.log("Elemento:", e.target);
+      console.log("Tipo de evento:", e.type);
+    }
+
+    document.getElementById("boton1").addEventListener("click", manejadorEventos);
+    document.getElementById("boton2").addEventListener("click", manejadorEventos);
+    document.getElementById("div1").addEventListener("mouseenter", manejadorEventos);
+    document.getElementById("div2").addEventListener("mouseenter", manejadorEventos);
+  </script>
+</body>
+</html>

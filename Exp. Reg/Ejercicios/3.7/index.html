@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>5c7</title></head>
+<body>
+<script>
+function extraerPosicionesEmails(texto) {
+  const regex = /\w+@([a-zA-Z_]+\.)+[a-zA-Z]{2,6}/g;
+  let posiciones = [];
+  let match;
+  while ((match = regex.exec(texto)) !== null) {
+    posiciones.push(match.index);
+  }
+  return posiciones;
+}
+
+console.log(extraerPosicionesEmails("Escribe a juan@correo.com y luego a ana@mail.es"));
+</script>
+</body>
+</html>

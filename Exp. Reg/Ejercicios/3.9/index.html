@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>5c9</title></head>
+<body>
+<script>
+function validaNumerosSeparados(dato) {
+  return /^(\d)([-.])(\d)\2(\d)$/.test(dato);
+}
+
+console.log(validaNumerosSeparados("3-8-5"), true);
+console.log(validaNumerosSeparados("3.8.5"), true);
+console.log(validaNumerosSeparados("3.8-5"), false);
+</script>
+</body>
+</html>

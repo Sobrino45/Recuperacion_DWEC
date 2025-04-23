@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>5c5</title></head>
+<body>
+<script>
+function validaNumeroDecimal(num) {
+  return /^[+-]?\d+(,\d+)?$/.test(num);
+}
+
+console.log(validaNumeroDecimal("123"), true);
+console.log(validaNumeroDecimal("-25,09"), true);
+console.log(validaNumeroDecimal("+0,23"), true);
+console.log(validaNumeroDecimal("5.3"), false);
+</script>
+</body>
+</html>

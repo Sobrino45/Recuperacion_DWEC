@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>5c8</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jasmine-core/lib/jasmine-core/jasmine.css">
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/jasmine-core/lib/jasmine-core/jasmine.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jasmine-core/lib/jasmine-core/boot0.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jasmine-core/lib/jasmine-core/boot1.js"></script>
+
+  <script>
+    function validaDireccionIP(ip) {
+      const regex = /^(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(?!$)){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$/;
+      return regex.test(ip);
+    }
+
+    describe("Test de IPs", () => {
+      const validas = ["192.168.1.1", "10.0.0.255", "0.0.0.0", "255.255.255.255", "172.16.0.1"];
+      const invalidas = ["256.1.1.1", "192.168.1", "abc.def.ghi.jkl", "192.168.1.256", "123.456.78.90"];
+
+      validas.forEach(ip => {
+        it(`Debe validar ${ip} como válida`, () => {
+          expect(validaDireccionIP(ip)).toBe(true);
+        });
+      });
+
+      invalidas.forEach(ip => {
+        it(`Debe rechazar ${ip} como inválida`, () => {
+          expect(validaDireccionIP(ip)).toBe(false);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>5c3</title></head>
+<body>
+<script>
+function validaDNI(dni) {
+  return /^\d{8}-?[trwagmyfpdxbnjzsqvhlcke]$/i.test(dni);
+}
+
+console.log(validaDNI("12345678Z"), true);
+console.log(validaDNI("87654321-p"), true);
+console.log(validaDNI("12A45678Z"), false);
+</script>
+</body>
+</html>

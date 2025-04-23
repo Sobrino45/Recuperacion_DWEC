@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Actividad 5a3</title>
+</head>
+<body>
+  <label for="localidades">Selecciona una localidad:</label>
+  <select id="localidades">
+    <option value="">-- Elige una --</option>
+    <option value="Utrera">Utrera</option>
+    <option value="Los Palacios">Los Palacios</option>
+    <option value="Dos Hermanas">Dos Hermanas</option>
+  </select>
+  <span id="seleccion"></span>
+
+  <script>
+    const select = document.getElementById("localidades");
+    const span = document.getElementById("seleccion");
+
+    select.addEventListener("change", () => {
+      const localidad = select.value;
+      span.textContent = localidad ? ` Has seleccionado: ${localidad}` : "";
+    });
+  </script>
+</body>
+</html>

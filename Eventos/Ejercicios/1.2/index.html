@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Actividad 5a2</title>
+</head>
+<body>
+  <input type="text" id="cuadroTexto" placeholder="Escribe algo...">
+  <p id="saludo">Hola</p>
+
+  <script>
+    const input = document.getElementById("cuadroTexto");
+    const saludo = document.getElementById("saludo");
+
+    input.addEventListener("input", () => {
+      saludo.textContent = "Hola " + input.value;
+    });
+  </script>
+</body>
+</html>

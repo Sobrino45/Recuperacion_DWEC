@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>5c10</title></head>
+<body>
+<script>
+function extraeExpresionesMatemáticas(texto) {
+  return texto.match(/\{[^}]+\}/g) || [];
+}
+
+const cadena = "La ecuación de una recta es {y=a*x + b}, la de un círculo {x^2+y^2 = r} y la de la parábola {y = x^2}";
+console.log(extraeExpresionesMatemáticas(cadena));
+</script>
+</body>
+</html>
