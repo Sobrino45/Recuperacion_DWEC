@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Alta paciente</title>
+  <style>
+    label { display: block; margin-top: 10px; }
+    .resumen { margin-top: 20px; border-top: 1px solid #ccc; padding-top: 10px; }
+  </style>
+  <script>
+    function validarFormulario(event) {
+      const nombre = document.querySelector('input[name="nombre"]').value.trim();
+      const sexo = document.querySelector('input[name="sexo"]:checked')?.value;
+      const altura = document.querySelector('input[name="altura"]').value;
+      const fechaNac = document.querySelector('input[name="fecha_nacimiento"]').value;
+      const semana = document.querySelector('input[name="semana"]').value;
+      const fumador = document.getElementById('fumador').checked;
+      const cigarrillos = document.getElementById('cigarrillos').value;
+  
+      const hoy = new Date();
+      const nacimiento = new Date(fechaNac);
+      let edad = hoy.getFullYear() - nacimiento.getFullYear();
+      const mes = hoy.getMonth() - nacimiento.getMonth();
+      if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+        edad--;
+      }
+  
+      if (!nombre || !sexo || !altura || !fechaNac) {
+        alert("Rellena todos los campos obligatorios.");
+        event.preventDefault();
+        return false;
+      }
+  
+      if (edad < 18) {
+        alert("Debes ser mayor de edad.");
+        event.preventDefault();
+        return false;
+      }
+  
+      if (fumador && cigarrillos === "Seleccionar") {
+        alert("Selecciona una opción de cigarrillos.");
+        event.preventDefault();
+        return false;
+      }  
+    }
+  
+    function toggleCigarrillos() {
+      const fumador = document.getElementById('fumador').checked;
+      document.getElementById('cigarrillos').disabled = !fumador;
+    }
+  </script>
+  
+</head>
+<body>
+  <h1>Alta paciente</h1>
+  <form id="formulario" onsubmit="validarFormulario(event)" method="post" action="procesa.php">
+    <label>Nombre(*): <input type="text" name="nombre" maxlength="30" required></label>
+
+    <label>Sexo(*):</label>
+    <label><input type="radio" name="sexo" value="H" required> Hombre</label>
+    <label><input type="radio" name="sexo" value="M" required> Mujer</label>
+
+    <label>Altura(50-210cm)(*): <input type="number" name="altura" min="50" max="210" required></label>
+
+    <label>Fecha nacimiento(*): <input type="date" name="fecha_nacimiento" required></label>
+
+    <label>Semana preferente para la cita: <input type="week" name="semana"></label>
+
+    <label><input type="checkbox" id="fumador" name="fumador" onchange="toggleCigarrillos()"> Fumador</label>
+
+    <label>
+      Nº cigarrillos:
+      <select name="cigarrillos" id="cigarrillos" disabled>
+        <option>Seleccionar</option>
+        <option>1-5</option>
+        <option>6-10</option>
+        <option>Más de 10</option>
+      </select>
+    </label>
+
+    <label>Observaciones:<br><textarea name="observaciones" rows="4" cols="40"></textarea></label>
+
+    <br>
+    <button type="submit">Enviar</button>
+    <button type="reset">Borrar</button>
+  </form>
+
+  <div id="resumen" class="resumen"></div>
+</body>
+</html>
