@@ -1,5 +1,5 @@
 <?php
-require_once 'ConexionBD.php'; 
+require_once 'ConexionDB.php'; 
 
 class Energia {
     private $conexion;

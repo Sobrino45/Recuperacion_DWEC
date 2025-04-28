@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `uso_energia`
 --
-USE DATABASE `sobrinoj_general`;
+
 
 CREATE TABLE `uso_energia` (
   `id` int NOT NULL,
