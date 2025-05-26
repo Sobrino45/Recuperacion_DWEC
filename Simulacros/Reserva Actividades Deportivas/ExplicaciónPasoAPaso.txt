@@ -1,0 +1,104 @@
+1. Estructura HTML del formulario
+Se crea un formulario en HTML con los siguientes campos:
+
+Nombre y apellidos (obligatorio).
+
+NIF (obligatorio, con validación específica).
+
+Desplegable de actividades (cargado dinámicamente con JS).
+
+Tipo de sesión (radio buttons: individual o grupal).
+
+Campo para tamaño de grupo (obligatorio solo si se elige grupal).
+
+Fecha y hora de reserva (con validaciones específicas).
+
+Cada campo relevante tiene asociado un <span class="error"> para mostrar mensajes de error sin usar alert().
+
+2. Estilos CSS básicos
+Se aplican estilos simples:
+
+Márgenes entre campos.
+
+Tipografía legible.
+
+Color rojo para los mensajes de error.
+
+Esto mejora la presentación y visibilidad de los errores sin recargar el diseño.
+
+3. Carga dinámica del desplegable de actividades
+Desde JavaScript, se carga el contenido del <select> de actividades:
+
+javascript
+Copiar
+Editar
+const actividades = ["Natación", "Spinning", "Yoga", "Pilates", "CrossFit", "Boxeo"];
+Cada elemento del array se convierte en una opción (<option>) que se añade al <select> con appendChild.
+
+4. Habilitar/deshabilitar campo de tamaño de grupo
+Al seleccionar "grupal", el campo de tamaño de grupo se habilita.
+
+Al seleccionar "individual", se deshabilita.
+
+Esto se logra con un addEventListener("change", ...) sobre los botones de tipo de sesión, modificando tamanoGrupo.disabled.
+
+5. Validación del NIF
+Se aplican dos validaciones:
+
+Formato válido: 8 dígitos + 1 letra (/^\d{8}[A-Z]$/i).
+
+Letra correcta: se calcula con el módulo 23 del número y se compara con la tabla:
+
+javascript
+Copiar
+Editar
+const letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+const letraCorrecta = letras[numero % 23];
+Se muestran errores diferentes según el caso:
+
+"Formato de NIF no válido"
+
+"La letra del NIF no es válida"
+
+6. Validación de la fecha
+Se exige que el día de la semana sea entre martes (2) y viernes (5):
+
+javascript
+Copiar
+Editar
+const dia = fecha.getDay();
+if (dia < 2 || dia > 5) {
+  errorFecha.textContent = "La reserva solo puede hacerse de martes a viernes";
+}
+Esto garantiza que los lunes, fines de semana y fechas vacías no pasen la validación.
+
+7. Validación de la hora según el día
+De martes a jueves: horario entre 08:00 y 12:00.
+
+Viernes: horario entre 17:00 y 20:30.
+
+Se desglosa la hora (h) y minutos (m) y se validan las condiciones lógicas para cada caso.
+
+Si no cumple, se muestra el error: "Hora no válida para el día seleccionado".
+
+8. Validación del campo de grupo
+Solo si se elige sesión grupal, se valida que el tamaño del grupo esté relleno y sea mayor que 0.
+
+Si no, se muestra: "Debe indicar el tamaño del grupo".
+
+9. Control del envío del formulario
+El evento submit del formulario se intercepta con preventDefault() para evitar que se envíe si hay errores.
+
+Se usa una variable isValid que va acumulando errores. Solo si todo está correcto, se puede continuar (por ejemplo, mostrando un alert o enviando a servidor).
+
+
+
+
+Conclusión
+Esta solución:
+
+Cumple todos los requisitos funcionales y de validación del enunciado.
+
+Está organizada, comentada y separada por responsabilidades (HTML, CSS, JS).
+
+Es accesible y clara, evitando alertas intrusivas y mostrando errores en pantalla de forma intuitiva.

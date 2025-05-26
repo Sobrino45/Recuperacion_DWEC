@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reserva Polideportivo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Reserva de Actividades Deportivas</h1>
+  <form id="reservaForm">
+    <label>Nombre y Apellidos:
+      <input type="text" id="nombre" required />
+    </label>
+
+    <label>NIF:
+      <input type="text" id="nif" required />
+    </label>
+    <span class="error" id="errorNif"></span>
+
+    <label>Actividad:
+      <select id="actividad" required></select>
+    </label>
+
+    <label>Tipo de sesión:</label>
+    <label><input type="radio" name="sesion" value="individual" checked /> Individual</label>
+    <label><input type="radio" name="sesion" value="grupal" /> Grupal</label>
+
+    <label>Tamaño del grupo:
+      <input type="number" id="tamanoGrupo" min="1" disabled />
+    </label>
+    <span class="error" id="errorGrupo"></span>
+
+    <label>Fecha de la reserva:
+      <input type="date" id="fecha" required />
+    </label>
+    <span class="error" id="errorFecha"></span>
+
+    <label>Hora de la reserva:
+      <input type="time" id="hora" required />
+    </label>
+    <span class="error" id="errorHora"></span>
+
+    <button type="submit">Enviar</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>

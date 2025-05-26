@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inscripción Talleres de Verano</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <form id="formTaller">
+    <label>Nombre completo: <input type="text" id="nombre"></label>
+    <span class="error" id="errorNombre"></span><br>
+
+    <label>Teléfono: <input type="text" id="telefono"></label>
+    <span class="error" id="errorTelefono"></span><br>
+
+    <label>Taller:
+      <select id="taller">
+        <option value="">Seleccione...</option>
+      </select>
+    </label>
+    <span class="error" id="errorTaller"></span><br>
+
+    <label><input type="radio" name="modalidad" value="presencial"> Presencial</label>
+    <label><input type="radio" name="modalidad" value="online"> Online</label>
+    <span class="error" id="errorModalidad"></span><br>
+
+    <label>Email (solo online): <input type="email" id="email" disabled></label>
+    <span class="error" id="errorEmail"></span><br>
+
+    <label>Fecha inicio: <input type="date" id="fecha"></label>
+    <span class="error" id="errorFecha"></span><br>
+
+    <label>Hora: <input type="time" id="hora"></label>
+    <span class="error" id="errorHora"></span><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script src="validacion.js"></script>
+</body>
+</html>

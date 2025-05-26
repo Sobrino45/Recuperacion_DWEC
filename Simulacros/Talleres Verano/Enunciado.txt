@@ -1,0 +1,65 @@
+🧪 Simulacro: Formulario de Inscripción a Talleres Juveniles de Verano
+Este ejercicio consiste en validar un formulario para la inscripción de jóvenes a talleres de verano.
+
+Condiciones generales:
+No se deben utilizar alertas emergentes para mostrar errores.
+
+Las validaciones se realizarán únicamente al pulsar el botón Enviar.
+
+Los mensajes de error se mostrarán junto a cada campo correspondiente.
+
+📝 Requisitos del formulario:
+a) Campo "Nombre completo"
+Es obligatorio.
+
+b) Campo "Teléfono"
+Es obligatorio.
+
+Debe tener exactamente 9 dígitos.
+
+Debe comenzar por 6 o 7.
+
+Si no cumple, mostrar: "Teléfono no válido (debe comenzar por 6 o 7 y tener 9 dígitos)".
+
+c) Campo "Taller"
+Se mostrará un <select> generado dinámicamente desde JavaScript con las siguientes opciones:
+
+"Teatro"
+
+"Fotografía"
+
+"Robótica"
+
+"Cocina creativa"
+
+"Arte urbano"
+
+Es obligatorio seleccionar una opción distinta de la predeterminada.
+
+d) Campo "Modalidad"
+Se selecciona mediante botones de radio:
+
+"Presencial"
+
+"Online"
+
+Si se selecciona "Online", se habilita un campo email que pasa a ser obligatorio.
+
+Si se selecciona "Presencial", el campo de email debe estar deshabilitado.
+
+Si el email es obligatorio y está vacío, mostrar: "Debe introducir un correo electrónico".
+
+e) Campo "Fecha de inicio"
+Debe estar comprendida entre lunes y viernes.
+
+Si no es válida, mostrar: "Los talleres solo pueden empezar entre lunes y viernes".
+
+f) Campo "Hora"
+Según el día de la semana:
+
+Lunes a jueves: entre 10:00 y 13:00
+
+Viernes: entre 17:00 y 20:00
+
+Si el horario no cumple, mostrar: "Horario no válido para el día seleccionado".
+

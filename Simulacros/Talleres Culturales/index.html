@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscripción Talleres Culturales</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Formulario de Inscripción a Talleres Culturales</h1>
+  <form id="formulario">
+    <label>Nombre completo:
+      <input type="text" id="nombre" required>
+    </label>
+
+    <label>DNI:
+      <input type="text" id="dni" required>
+    </label>
+    <span class="error" id="errorDni"></span>
+
+    <label>Taller:
+      <select id="taller" required></select>
+    </label>
+
+    <label>Modalidad:</label>
+    <label><input type="radio" name="modalidad" value="presencial" checked> Presencial</label>
+    <label><input type="radio" name="modalidad" value="online"> Online</label>
+
+    <label>Plataforma online:
+      <input type="text" id="plataforma" disabled>
+    </label>
+    <span class="error" id="errorPlataforma"></span>
+
+    <label>Fecha del taller:
+      <input type="date" id="fecha" required>
+    </label>
+    <span class="error" id="errorFecha"></span>
+
+    <label>Hora del taller:
+      <input type="time" id="hora" required>
+    </label>
+    <span class="error" id="errorHora"></span>
+
+    <button type="submit">Enviar</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
