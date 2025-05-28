@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Vacunación COVID-XX</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <h1>Formulario de Vacunación COVID-XX</h1>
+  <form id="formulario">
+    <div class="campo">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+      <span class="error" id="error-nombre"></span>
+    </div>
+
+    <div class="campo">
+      <label for="apellidos">Apellidos:</label>
+      <input type="text" id="apellidos" name="apellidos" required>
+      <span class="error" id="error-apellidos"></span>
+    </div>
+
+    <div class="campo">
+      <label for="dni">DNI:</label>
+      <input type="text" id="dni" name="dni" required>
+      <span class="error" id="error-dni"></span>
+    </div>
+
+    <div class="campo">
+      <label for="vacuna">Vacuna:</label>
+      <select id="vacuna" name="vacuna" required></select>
+      <span class="error" id="error-vacuna"></span>
+    </div>
+
+    <div class="campo">
+      <label>Tipo de paciente:</label>
+      <input type="radio" id="riesgo" name="tipo" value="riesgo">
+      <label for="riesgo">Grupo de riesgo</label>
+      <input type="radio" id="general" name="tipo" value="general">
+      <label for="general">Población general</label>
+      <span class="error" id="error-tipo"></span>
+    </div>
+
+    <div class="campo">
+      <label for="categoria">Categoría (solo si grupo de riesgo):</label>
+      <select id="categoria" name="categoria" disabled>
+        <option value="">Seleccionar</option>
+        <option value="mayores">Mayores de 65 años</option>
+        <option value="cronicas">Enfermedades crónicas</option>
+        <option value="inmuno">Inmunodeprimidos</option>
+      </select>
+      <span class="error" id="error-categoria"></span>
+    </div>
+
+    <div class="campo">
+      <label for="fecha">Fecha de vacunación:</label>
+      <input type="date" id="fecha" name="fecha" required>
+      <span class="error" id="error-fecha"></span>
+    </div>
+
+    <div class="campo">
+      <label for="hora">Hora de vacunación:</label>
+      <input type="time" id="hora" name="hora" required>
+      <span class="error" id="error-hora"></span>
+    </div>
+
+    <div class="campo">
+      <button type="submit" id="enviar">Enviar</button>
+    </div>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>

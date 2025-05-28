@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulacro Citas Hospital</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script src="recursos.js" defer></script>
+    <script src="validacion.js" defer></script>
+</head>
+<body>
+    <h1>Formulario de Cita Médica</h1>
+    <form id="formularioCita">
+        <label>Nombre: <input type="text" name="nombre" id="nombre" required></label><span class="error" id="errorNombre"></span><br>
+        <label>Apellidos: <input type="text" name="apellidos" id="apellidos" required></label><span class="error" id="errorApellidos"></span><br>
+        <label>DNI: <input type="text" name="dni" id="dni" required></label><span class="error" id="errorDNI"></span><br>
+
+        <label>Seguro Médico:
+            <select id="seguro" required>
+                <option value="">Seleccione seguro</option>
+            </select>
+        </label><span class="error" id="errorSeguro"></span><br>
+
+        <label>Tipo de médico:
+            <input type="radio" name="medico" value="familia" checked> Médico de familia
+            <input type="radio" name="medico" value="especialista"> Especialista
+        </label><br>
+
+        <label>Especialidad:
+            <select id="especialidad" disabled required>
+                <option value="">Seleccione especialidad</option>
+                <option value="cardiologia">Cardiología</option>
+                <option value="dermatologia">Dermatología</option>
+                <option value="traumatologia">Traumatología</option>
+            </select>
+        </label><span class="error" id="errorEspecialidad"></span><br>
+
+        <label>Fecha de la cita: <input type="date" id="fecha" required></label><span class="error" id="errorFecha"></span><br>
+        <label>Hora de la cita: <input type="time" id="hora" required></label><span class="error" id="errorHora"></span><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
