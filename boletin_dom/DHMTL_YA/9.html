@@ -1,0 +1,50 @@
+<!-- Accediendo a un conjunto de marcas HTML similares (getElementsByTagName) -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        input[type="button"] {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Párrafo número 1.</p>
+    <p>Párrafo número 2.</p>
+    <p>Párrafo número 3.</p>
+    <p>Párrafo número 4.</p>
+    <p>Párrafo número 5.</p>
+    <p>Párrafo número 6.</p>
+    <input type="button" value="Cambiar Color" onClick="cambiarColor()">
+
+    <script>
+        function cambiarColor() {
+            let lista = document.getElementsByTagName('p');
+            for (let f = 0; f < lista.length; f++) {
+                lista[f].style.color = '#f00'; 
+            }
+        }
+    </script>
+</body>
+
+</html>

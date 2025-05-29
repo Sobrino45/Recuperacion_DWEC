@@ -1,0 +1,58 @@
+<!-- Agregar un nodo de tipo elemento en medio (insertBefore - createElement) -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #parrafos p {
+            margin: 10px 0;
+        }
+
+        input[type="button"] {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parrafos">
+        <p>Este es el primer párrafo</p>
+        <p>Este es el segundo párrafo</p>
+        <p>Este es el tercer párrafo</p>
+        <p>Este es el cuarto párrafo</p>
+        <p>Este es el quinto párrafo</p>
+    </div>
+    <input type="button" value="Insertar al principio" onClick="insertarAlPrincipio()">
+
+    <script>
+        function insertarAlPrincipio() {
+            // Crear un nuevo elemento <p>
+            let elemento = document.createElement('p');
+            // Crear un nodo de texto
+            let nodotexto = document.createTextNode('Ahora este es el primer párrafo');
+            // Añadir el nodo de texto al elemento <p>
+            elemento.appendChild(nodotexto);
+            // Obtener el contenedor de los párrafos
+            let pa = document.getElementById('parrafos');
+            // Obtener el primer hijo del contenedor
+            let puntero = pa.firstElementChild;
+            // Insertar el nuevo párrafo antes del primer párrafo existente
+            pa.insertBefore(elemento, puntero);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!-- Crear y agregar un nodo de tipo elemento (createElement - appendChild) -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="button"] {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="lista">
+        <!-- Los elementos <li> se agregarán dinámicamente aquí -->
+    </ul>
+    <input type="button" value="Agregar dos (li)" onClick="mostrarSoluciones()">
+
+    <script>
+        function mostrarSoluciones() {
+            let nt;
+            let obj;
+            let elemento;
+
+            obj = document.getElementById('lista');
+
+            // Si ya hay elementos en la lista, no agregar más
+            if (obj.children.length != 0) return;
+
+            // Crear y agregar el primer <li>
+            elemento = document.createElement('li');
+            nt = document.createTextNode('Respuesta 1');
+            elemento.appendChild(nt);
+            obj.appendChild(elemento);
+
+            // Crear y agregar el segundo <li>
+            elemento = document.createElement('li');
+            nt = document.createTextNode('Respuesta 2');
+            elemento.appendChild(nt);
+            obj.appendChild(elemento);
+        }
+    </script>
+</body>
+
+</html>

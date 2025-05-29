@@ -1,0 +1,67 @@
+<!-- Agregar un nodo de texto (appendChild - createTextNode) -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="button"] {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li id="opcion1"></li>
+        <li id="opcion2"></li>
+        <li id="opcion3"></li>
+    </ul>
+    <input type="button" value="Ver soluciones" onClick="mostrarSoluciones()">
+
+    <script>
+        function mostrarSoluciones() {
+            let nt;
+            let obj;
+
+            nt = document.createTextNode('Respuesta 1');
+            obj = document.getElementById('opcion1');
+            obj.appendChild(nt);
+
+            nt = document.createTextNode('Respuesta 2');
+            obj = document.getElementById('opcion2');
+            obj.appendChild(nt);
+
+            nt = document.createTextNode('Respuesta 3');
+            obj = document.getElementById('opcion3');
+            obj.appendChild(nt);
+        }
+    </script>
+</body>
+
+</html>

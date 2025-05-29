@@ -1,0 +1,30 @@
+<!-- Propiedad innerText -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+</head>
+<body>
+    <ol id="lista1">
+        <li>Opción A</li>
+        <li>Opción B</li>
+        <li>Opción C</li>
+        <li>Opción D</li>
+    </ol>
+    <input type="button" value="Agregar punto final" onclick="agregarPunto()">
+    <script>
+        function agregarPunto() {
+            let lista = document.getElementById("lista1");
+            let items = lista.getElementsByTagName("li");
+            
+            for (let i = 0; i < items.length; i++) {
+                items[i].innerText = items[i].innerText + "."; 
+            }
+        }
+    </script>
+</body>
+</html>

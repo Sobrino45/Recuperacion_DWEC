@@ -1,0 +1,55 @@
+<!-- Accediendo a una marca HTML a través del DOM (getElementById) -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        #comentarios {
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        #botones {
+            text-align: center;
+        }
+
+        #boton1,
+        #boton2,
+        #boton3 {
+            width: 200px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="comentarios">
+        Este texto pertenece al párrafo. Este texto pertenece al párrafo. Este texto pertenece al párrafo. Este texto pertenece al párrafo. Este texto pertenece al párrafo. Este texto pertenece al párrafo. Este texto pertenece al párrafo. Este texto pertenece al párrafo.
+    </p>
+
+    <div id="botones">
+        <input type="button" id="boton1" value="Fuente pequeña" onClick="cambiarFuente('10px')">
+        <input type="button" id="boton2" value="Fuente mediana" onClick="cambiarFuente('13px')">
+        <input type="button" id="boton3" value="Fuente grande" onClick="cambiarFuente('20px')">
+    </div>
+
+    <script>
+        function cambiarFuente(tam) {
+            const comentarios = document.getElementById('comentarios');
+            comentarios.style.fontSize = tam;
+        }
+    </script>
+</body>
+
+</html>
