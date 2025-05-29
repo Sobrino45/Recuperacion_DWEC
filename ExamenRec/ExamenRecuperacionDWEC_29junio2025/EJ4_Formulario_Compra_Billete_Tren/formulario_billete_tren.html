@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <div class="container border">
+        <div class="row">
+            <header id="hearder" class="col-12 bg-danger text-white p-4">
+                <h1>Trenes RuizLo</h1>
+            </header>
+
+            <nav id="menu" class="col-12 bg-secondary text-white">
+                <ul class="row w-50">
+                    <li class="col">Inicio</li>
+                    <li class="col">Página 1</li>
+                    <li class="col">Página 2</li>
+                    <li class="col">Página 3</li>
+                    <li class="col">Contacto</li>
+                </ul>
+            </nav>
+
+            <div id="content" class="col-12 mb-4">
+                <div class="row">
+                    <section class="container border col-9 mt-4 mb-4">
+                        <h1>Compra de billete</h1>
+                        <hr>
+                        <form name="miformulario" method="POST" action="procesar.php">
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <label for="inputNombre" class="form-label">Nombre(*)</label>
+                                    <input type="text" class="form-control" id="inputNombre" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputApellido1" class="form-label">Apellido1(*)</label>
+                                    <input type="text" class="form-control" id="inputApellido1" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputApellido2" class="form-label">Apellido2(*)</label>
+                                    <input type="text" class="form-control" id="inputApellido2" required>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <label class="form-label" for="inputFechaNacimiento">Fecha nacimiento(*):</label>
+                                    <input class="form-control" type="date" id="inputFechaNacimiento">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputCodigoLector" class="form-label">Código de cliente(*)</label>
+                                    <input type="text" class="form-control" id="inputCodigoLector">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="inputOrigen">Origen(*):</label>
+                                    <select class="form-control form-select" id="inputOrigen">
+                                        <option value="0">Seleccionar</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="inputDestino">Destino(*):</label>
+                                    <select class="form-control form-select" id="inputDestino">
+                                        <option value="0">Seleccionar</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="inputFecha">Fecha(*):</label>
+                                    <input class="form-control" type="date" id="inputFecha">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputNumeroCuenta" class="form-label">Número de cuenta</label>
+                                    <input type="text" class="form-control" id="inputNumeroCuenta" placeholder="">
+                                    <small class="text-muted">Código IBAN (ej. ES76-20770024003102575766)</small>
+                                </div>
+                            </div>
+                 
+                            <hr>
+                            <input type="submit" class="btn btn-primary" id="enviar" value="Enviar">
+                            <input type="reset" class="btn btn-warning" value="Borrar">
+                        </form>
+                    </section>
+
+                    <aside class="col-3 border mt-4 mb-4">
+                        <h2>Ofertas</h2>
+                        <div class="lateral row bg-light align-items-center">
+                            <div class="col bg-primary col-4 align-self-start">Oferta 1</div>
+                            <div class="col bg-success col-4 align-self-center">OFerta 2</div>
+                            <div class="col bg-warning col-4 align-self-end">Oferta 3</div>
+                        </div>
+                    </aside>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <footer class="col-lg-12 bg-danger">
+            Ruizlo Mayo 2025&copy;
+        </footer>
+
+    </div>
+    </div>
+
+    <script src="billete_tren.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./js/jquery-3.3.1.slim.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/funciones.js"></script>
+
+</body>
+
+</html>

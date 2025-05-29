@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    table,
+    tr,
+    td {
+      border: 1px solid blue;
+    }
+
+    .caja {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      margin: 10px;
+      float: left;
+      padding: 30px;
+      text-align: center;
+      background-color: lightgray;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Recuento de eventos</h1>
+
+  <label for="inputNumeroDivs">Nº Divs</label>
+  <input type="number" name="inputNumeroDivs" id="inputNumeroDivs" value="2">
+  <input type="button" id="inputCrear" value="Crear">
+  <hr>
+
+  <table>
+    <tr id="divs">
+       <!-- Aquí dentro deben crearse los divs de manera dinámica-->
+
+    </tr>
+    <tr id="marcadores">
+       <!-- Aquí dentro deben crearse los marcadores de recuento de manera dinámica-->
+
+    </tr>
+  </table>
+
+  <script src="funciones.js"></script>
+
+</body>
+
+</html>
