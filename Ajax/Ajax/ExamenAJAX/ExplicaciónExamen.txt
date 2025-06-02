@@ -1,0 +1,141 @@
+🎯 Objetivo del proyecto:
+Mostrar películas clasificadas por género usando AJAX, PHP, JSON/XML, y una base de datos MySQL. La interfaz permite:
+
+Cargar los géneros desde la base de datos en formato JSON.
+
+Al seleccionar un género, se muestran las películas de ese género en formato XML.
+
+🗂 Estructura del proyecto:
+r
+Copiar
+Editar
+examen_ajax_peliculas_blank/
+│
+├── index.html                <- Página principal
+├── funciones.js              <- Código JavaScript que maneja AJAX
+├── examen_ajax_peliculas.sql <- Base de datos
+│
+├── api/
+│   ├── cargar_generos_json.php     <- Devuelve los géneros en JSON
+│   ├── cargar_peliculas_xml.php    <- Devuelve las películas en XML
+│   ├── config.php                  <- Conexión con MySQL
+│   ├── Genero.php                  <- Clase PHP para los géneros
+│   └── Pelicula.php                <- Clase PHP para las películas
+🧩 ¿Qué hace cada archivo?
+✅ index.html
+Carga el diseño visual con Bootstrap.
+
+Tiene un <select> para los géneros.
+
+Tiene una zona donde se mostrarán las películas cuando se seleccione un género.
+
+✅ funciones.js
+Contiene:
+
+Una función que hace una petición AJAX a cargar_generos_json.php y llena el <select>.
+
+Otra función que al seleccionar un género, llama a cargar_peliculas_xml.php y muestra las películas.
+
+✅ cargar_generos_json.php
+Conecta a la base de datos.
+
+Obtiene todos los géneros.
+
+Los devuelve como JSON.
+
+✅ cargar_peliculas_xml.php
+Recibe un idGenero por GET.
+
+Busca las películas correspondientes en la base de datos.
+
+Devuelve un XML con los datos.
+
+✅ config.php
+Define la conexión a la base de datos (host, usuario, contraseña, nombre BD).
+
+✅ Genero.php y Pelicula.php
+Clases auxiliares que encapsulan la lógica para consultar los géneros y películas.
+
+✅ 2. Resolución completa del examen (si estuviera incompleto)
+Voy a revisar ahora el contenido de index.html y funciones.js para ver si falta algo por hacer (por ejemplo, el uso de AJAX o el pintado de películas).
+
+Procedo a inspeccionar esos archivos.
+
+✅ Revisión del código: ¿está completo?
+index.html
+✔️ Correctamente estructurado con:
+
+<select id="inputGenero"> para los géneros.
+
+<tbody id="inputTabla"> para mostrar películas.
+
+Solo hay ejemplos de géneros/películas puestos manualmente — el objetivo es reemplazarlos dinámicamente desde JS.
+
+funciones.js
+✔️ Tiene:
+
+cargarGeneros(): carga los géneros desde cargar_generos_json.php usando JSON y los mete al <select>.
+
+seleccionarGenero(): cuando seleccionas un género, carga películas vía cargar_peliculas_xml.php?genero=ID usando XML.
+
+procesarPeliculas(): está parcialmente implementado — ❗️trata incorrectamente de hacer JSON.parse cuando debería leer XML.
+
+❗️ Corrección necesaria:
+js
+Copiar
+Editar
+function procesarPeliculas() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        let xml = xhr.responseXML;
+        let peliculas = xml.getElementsByTagName("pelicula");
+
+        let tabla = document.getElementById("inputTabla");
+        tabla.innerHTML = "";
+
+        for (let i = 0; i < peliculas.length; i++) {
+            let titulo = peliculas[i].getElementsByTagName("titulo")[0].textContent;
+            let anio = peliculas[i].getElementsByTagName("anio")[0].textContent;
+            let genero = peliculas[i].getElementsByTagName("genero")[0].textContent;
+            let imagen = peliculas[i].getElementsByTagName("imagen")[0].textContent;
+
+            let fila = `
+                <tr>
+                    <td>${titulo}</td>
+                    <td>${anio}</td>
+                    <td>${genero}</td>
+                    <td><img src="images/${imagen}" width="50"></td>
+                </tr>`;
+            tabla.innerHTML += fila;
+        }
+    }
+}
+✅ Con eso, el examen queda resuelto completamente.
+
+✅ 3. Resumen del flujo AJAX completo
+🌀 Flujo del sistema:
+Paso 1: Página se carga
+JS ejecuta cargarGeneros()
+
+Se hace GET → api/cargar_generos_json.php
+
+Respuesta JSON: lista de géneros
+
+Se llena el <select> con los datos recibidos.
+
+Paso 2: Usuario selecciona un género
+Se dispara change → llama a seleccionarGenero()
+
+Se hace GET → api/cargar_peliculas_xml.php?genero=ID
+
+Respuesta XML: lista de películas
+
+JS parsea el XML y crea filas en la tabla (<tbody>)
+
+✅ Conclusión
+El examen está bien planteado y mayormente resuelto, pero:
+
+Había un pequeño bug en la lectura del XML, ya que intentaba hacer JSON.parse() (lo corregimos arriba).
+
+El resto de la lógica AJAX está correctamente implementada y organizada.
+
+¿Quieres que te prepare un PDF resumen con este análisis completo y las correcciones, o necesitas también que te genere una versión corregida del proyecto en .zip? 
