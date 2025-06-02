@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica de Uso de Energía</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Gráfica de Uso de Energía</h1>
+    <canvas id="miGrafica" width="400" height="400"></canvas>
+
+    <script>
+        $.ajax({
+            url: 'get_energia.php', 
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                dibujarGrafica(data);
+            },
+            error: function() {
+                alert("Hubo un error al obtener los datos.");
+            }
+        });
+
+        function dibujarGrafica(datos) {
+            var ctx = document.getElementById('miGrafica').getContext('2d');
+            var miGrafica = new Chart(ctx, {
+                type: 'pie', 
+                data: {
+                    labels: datos.map(function(item) { return item.fuente; }), 
+                    datasets: [{
+                        label: 'Uso de Energía',
+                        data: datos.map(function(item) { return parseFloat(item.porcentaje); }), 
+                        backgroundColor: ['#FF6347', '#4CAF50', '#00BFFF', '#FFD700', '#8A2BE2'],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return tooltipItem.label + ": " + tooltipItem.raw.toFixed(2) + "%"; 
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
