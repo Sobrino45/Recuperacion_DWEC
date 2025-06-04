@@ -1,0 +1,1 @@
+// main.js - contenido simulado para el ejemplo

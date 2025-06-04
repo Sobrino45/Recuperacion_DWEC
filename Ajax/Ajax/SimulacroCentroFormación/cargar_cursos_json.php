@@ -1,0 +1,1 @@
+// cargar_cursos_json.php - contenido simulado para el ejemplo

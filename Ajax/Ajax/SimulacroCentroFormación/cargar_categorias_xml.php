@@ -1,0 +1,1 @@
+// cargar_categorias_xml.php - contenido simulado para el ejemplo

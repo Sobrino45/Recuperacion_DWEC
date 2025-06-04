@@ -1,0 +1,1 @@
+// bbdd_formacion.sql - contenido simulado para el ejemplo
